@@ -80,7 +80,7 @@ export default function BlogPostCard({ post, index }) {
                 width: '100%',
                 height: '100%',
                 position: 'absolute',
-                bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
+                bgcolor: (theme) => alpha(theme.palette.grey[600], 0.72),
               },
             }),
             ...(latestPostLarge && {
@@ -131,7 +131,7 @@ export default function BlogPostCard({ post, index }) {
             }),
           }}
         >
-          <Typography gutterBottom variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>
+          <Typography gutterBottom variant="caption" sx={{ color: 'primary.darker', display: 'block' }}>
             {fDate(createdAt)}
           </Typography>
 
@@ -158,7 +158,7 @@ export default function BlogPostCard({ post, index }) {
                   alignItems: 'center',
                   ml: index === 0 ? 0 : 1.5,
                   ...((latestPostLarge || latestPost) && {
-                    color: 'grey.500',
+                    color: 'grey.300',
                   }),
                 }}
               >
