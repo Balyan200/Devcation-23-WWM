@@ -18,7 +18,8 @@ const style = {
     p: 4,
   };
 
-
+let amount = 0;
+const multiplier = 2;
 const center ={lat:28.6665,lng:77.2333}
 export default function Map(){
 
@@ -61,12 +62,15 @@ export default function Map(){
             travelMode:google.maps.TravelMode.DRIVING
         })
 
-        const fair = {distance}*10;
-        console.log(fair)
-
+       
         setDirectionResponse(results)
         setDistance(results.routes[0].legs[0].distance.text)
         setDuration(results.routes[0].legs[0].duration.text)
+        
+        const distanceString = results.routes[0].legs[0].distance.value;
+        amount = (distanceString/1000)*multiplier;
+        console.log(distanceString)
+        console.log(amount)
     }
 
     function clearRoute(){
@@ -106,6 +110,8 @@ export default function Map(){
                         <DirectionsCarIcon fontSize="large" align="center" sx={{marginLeft:"140px"}}/> 
                         <Typography variant="h6" align="center">Electric vehicle No. DL 23BC ****</Typography>
                         <Typography variant="body1" align="center">Ms. Archana </Typography>
+                        <Typography variant="body1" align="center">{amount} </Typography>
+
                         
                         <br/>
                         <Button onClick={()=>alert("Your Cab is booked succesfully")}>Book this cab </Button>
